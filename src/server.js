@@ -1,8 +1,12 @@
 import express from 'express';
 import pino from 'pino-http';
 import cors from 'cors';
+import { notFoundHandler } from './middlewares/notFoundHandler.js';
+import { errorHandler } from './middlewares/errorHandler.js';
+import { getEnvVar } from './utils/getEnvVar.js';
+import router from './routers/index.js';
 
-const PORT = 3000;
+const PORT = Number(getEnvVar('PORT', '3000'));
 
 export function startServer() {
   const app = express();
@@ -24,9 +28,10 @@ export function startServer() {
     });
   });
 
-  app.use((req, res) => {
-    res.status(404).json({ message: 'Route not found' });
-  });
+  app.use(router);
+
+  app.use(notFoundHandler);
+  app.use(errorHandler);
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
