@@ -32,4 +32,4 @@ const bookingSchema = new Schema(
   },
 );
 
-export const UsersCollection = model('booking', bookingSchema);
+export const BookingCollection = model('booking', bookingSchema);

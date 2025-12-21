@@ -15,15 +15,19 @@ const userSchema = new Schema(
       lowercase: true,
     },
 
-    phoneNumber: {
+    password: {
       type: String,
       required: true,
+    },
+
+    phoneNumber: {
+      type: String,
       trim: true,
     },
     role: {
       type: String,
-      required: true,
       enum: ['client', 'business'],
+      default: 'client',
     },
 
     businessName: {
@@ -38,5 +42,11 @@ const userSchema = new Schema(
     versionKey: false,
   },
 );
+
+userSchema.methods.toJSON = function () {
+  const obj = this.toObject();
+  delete obj.password;
+  return obj;
+};
 
 export const UsersCollection = model('user', userSchema);

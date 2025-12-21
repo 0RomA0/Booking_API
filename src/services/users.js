@@ -28,3 +28,10 @@ export const deleteUser = async (userId) => {
   const deletedUser = await UsersCollection.findOneAndDelete({ _id: userId });
   return deletedUser;
 };
+
+// Get business users
+
+export const getBusinessUsers = async () => {
+  const BusinessUsers = await UsersCollection.find({ role: 'business' });
+  return BusinessUsers;
+};

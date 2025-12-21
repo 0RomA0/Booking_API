@@ -14,13 +14,12 @@ export const createUsersSchema = Joi.object({
   phoneNumber: Joi.string()
     .min(13)
     .pattern(/^\+380\d{9}$/)
-    .required()
     .messages({
       'string.pattern.base': `"phoneNumber" must be in the format +380XXXXXXXXX`,
       'any.required': `"phoneNumber" is a required field`,
     }),
 
-  role: Joi.string().valid('client', 'business').required(),
+  role: Joi.string().valid('client', 'business'),
 
   businessName: Joi.when('role', {
     is: 'business',

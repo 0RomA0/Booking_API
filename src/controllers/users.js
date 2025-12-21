@@ -3,6 +3,7 @@ import {
   createUser,
   deleteUser,
   getAllUsers,
+  getBusinessUsers,
   getUserById,
   updateUser,
 } from '../services/users.js';
@@ -72,4 +73,14 @@ export async function deleteUserController(req, res) {
   }
 
   res.status(204).send();
+}
+
+// Get business users controller
+
+export async function getBusinessUsersController(req, res) {
+  const users = await getBusinessUsers();
+
+  res.status(200).json({
+    data: users,
+  });
 }
