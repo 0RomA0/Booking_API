@@ -1,0 +1,71 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Students app
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: This is a documentation of students app
+tags:
+  - name: Users
+    description: Operations about users.
+  - name: Bookings
+    description: Operations about bookings
+  - name: Auth
+    description: Auth operations
+servers:
+  - url: https://booking-api-ga04.onrender.com
+    description: Production server
+
+paths:
+  /users:
+    get:
+      $ref: '../swagger/paths/users/get.yaml'
+    post:
+      $ref: '../swagger/paths/users/post.yaml'
+
+  /users/{id}:
+    patch:
+      $ref: '../swagger/paths/users/{id}/patch.yaml'
+    delete:
+      $ref: '../swagger/paths/users/{id}/delete.yaml'
+
+  /users/business:
+    get:
+      $ref: '../swagger/paths/users/business/get.yaml'
+
+  /bookings:
+    get:
+      $ref: '../swagger/paths/bookings/get-my.yaml'
+    post:
+      $ref: '../swagger/paths/bookings/post.yaml'
+
+  /bookings/{id}:
+    patch:
+      $ref: '../swagger/paths/bookings/{id}/patch.yaml'
+    delete:
+      $ref: '../swagger/paths/bookings/{id}/delete.yaml'
+
+  /auth/register:
+    $ref: ../swagger/paths/auth/register.yaml
+
+  /auth/login:
+    $ref: ../swagger/paths/auth/login.yaml
+
+  /auth/logout:
+    $ref: ../swagger/paths/auth/logout.yaml
+components:
+  schemas:
+    Booking:
+      $ref: ../swagger/components/schemas/booking.yaml
+    User:
+      $ref: ../swagger/components/schemas/user.yaml
+  responses:
+    Unauthorized:
+      $ref: ../swagger/components/responses/401.yaml
+    NotFound:
+      $ref: ../swagger/components/responses/404.yaml
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

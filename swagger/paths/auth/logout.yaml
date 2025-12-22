@@ -1,0 +1,12 @@
+post:
+  tags:
+    - Auth
+  summary: Log out user
+  operationId: logoutUser
+  security:
+    - bearerAuth: []
+  responses:
+    '204':
+      description: No Content
+    '401':
+      $ref: '../../components/responses/401.yaml'

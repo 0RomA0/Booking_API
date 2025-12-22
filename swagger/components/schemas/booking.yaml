@@ -1,0 +1,22 @@
+type: object
+properties:
+  _id:
+    type: string
+    example: '64a2b3c4d5e6f78901234567'
+  client:
+    $ref: './user.yaml'
+  business:
+    $ref: './user.yaml'
+  date:
+    type: string
+    format: date
+    example: '2025-12-27'
+  status:
+    type: string
+    enum: [active, cancelled]
+    example: 'active'
+required:
+  - _id
+  - client
+  - business
+  - date

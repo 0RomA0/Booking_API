@@ -23,3 +23,7 @@ export async function logInUserController(req, res) {
     data: user,
   });
 }
+
+export async function logOutUserController(req, res) {
+  res.status(204).send();
+}

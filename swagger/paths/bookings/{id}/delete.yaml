@@ -1,0 +1,19 @@
+tags:
+  - Bookings
+summary: Delete a booking
+operationId: deleteBookings
+security:
+  - bearerAuth: []
+parameters:
+  - name: id
+    in: path
+    required: true
+    schema:
+      type: string
+responses:
+  '204':
+    $ref: '../../../components/responses/204.yaml'
+  '401':
+    $ref: '../../../components/responses/401.yaml'
+  '404':
+    $ref: '../../../components/responses/404.yaml'

@@ -1,0 +1,36 @@
+tags:
+    - Users
+summary: Get all users
+description: Returns a list of all users.
+operationId: getUsers
+security:
+    - bearerAuth: []
+responses:
+  '200':
+    description: 'Successfully found users!'
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Successfully found users data'
+            data:
+              type: object
+              required:
+                - data
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: '../../components/schemas/user.yaml'
+  '401':
+    $ref: '../../components/responses/401.yaml'

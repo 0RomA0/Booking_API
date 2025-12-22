@@ -52,12 +52,12 @@ export async function patchBookingController(req, res) {
 
 export async function deleteBookingController(req, res) {
   const { id } = req.params;
-  const deletedUser = await deleteBooking({
+  const deletedBooking = await deleteBooking({
     bookingId: id,
     clientId: req.user.id,
   });
 
-  if (deletedUser === null) {
+  if (deletedBooking === null) {
     throw createHttpError(404, 'Booking not found');
   }
 

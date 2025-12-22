@@ -1,0 +1,12 @@
+description: Unauthorized. The user is not authenticated or token is invalid.
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 401
+        message:
+          type: string
+          example: 'Invalid token'

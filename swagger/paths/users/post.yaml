@@ -1,0 +1,33 @@
+tags:
+  - Users
+summary: Create a new user
+description: Register a new user (client by default)
+operationId: createUser
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: '../../components/schemas/user.yaml'
+responses:
+  '201':
+    description: 'User successfully created'
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created
+            data:
+              type: object
+  '400':
+    $ref: '../../components/responses/400.yaml'
+  '401':
+    $ref: '../../components/responses/401.yaml'

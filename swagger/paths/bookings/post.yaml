@@ -1,0 +1,36 @@
+tags:
+  - Bookings
+summary: Create a booking
+operationId: postBookings
+security:
+  - bearerAuth: []
+
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: ../../components/schemas/booking.yaml
+
+responses:
+  '201':
+    description: Booking successfully created
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully created
+            data:
+              $ref: ../../components/schemas/booking.yaml
+
+  '400':
+    $ref: ../../components/responses/400.yaml
+
+  '401':
+    $ref: ../../components/responses/401.yaml
