@@ -65,15 +65,41 @@
                       "example": "Successfully found users data"
                     },
                     "data": {
-                      "type": "object",
-                      "required": [
-                        "data"
-                      ],
-                      "properties": {
-                        "data": {
-                          "type": "array",
-                          "items": {
-                            "$ref": "#/components/schemas/user"
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "_id",
+                          "name",
+                          "email",
+                          "phoneNumber",
+                          "role",
+                          "businessName"
+                        ],
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "64a1f2c3e4b0f1234567890a"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Emma Don"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "emma12@mail.com"
+                          },
+                          "phoneNumber": {
+                            "type": "string",
+                            "example": "+380965576920"
+                          },
+                          "role": {
+                            "type": "string",
+                            "example": "business"
+                          },
+                          "businessName": {
+                            "type": "string",
+                            "example": "Coffee house"
                           }
                         }
                       }
@@ -291,8 +317,8 @@
         "tags": [
           "Bookings"
         ],
-        "summary": "Get bookings of current",
-        "operationId": "getMyBookings",
+        "summary": "Get bookings of current user",
+        "operationId": "getBookings",
         "security": [
           {
             "bearerAuth": []
@@ -306,7 +332,98 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/booking"
+                    "type": "object",
+                    "required": [
+                      "_id",
+                      "client",
+                      "business",
+                      "date",
+                      "status"
+                    ],
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "64a2b3c4d5e6f78901234567"
+                      },
+                      "client": {
+                        "type": "object",
+                        "required": [
+                          "_id",
+                          "name",
+                          "email",
+                          "phoneNumber",
+                          "role"
+                        ],
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "64a1f2c3e4b0f1234567890a"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Emma Don"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "emma12@mail.com"
+                          },
+                          "phoneNumber": {
+                            "type": "string",
+                            "example": "+380965576920"
+                          },
+                          "role": {
+                            "type": "string",
+                            "example": "client"
+                          }
+                        }
+                      },
+                      "business": {
+                        "type": "object",
+                        "required": [
+                          "_id",
+                          "name",
+                          "email",
+                          "phoneNumber",
+                          "role",
+                          "businessName"
+                        ],
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "64b3c4d5e6f7890123456789"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Coffee House"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "coffee@mail.com"
+                          },
+                          "phoneNumber": {
+                            "type": "string",
+                            "example": "+380987654321"
+                          },
+                          "role": {
+                            "type": "string",
+                            "example": "business"
+                          },
+                          "businessName": {
+                            "type": "string",
+                            "example": "Coffee House"
+                          }
+                        }
+                      },
+                      "date": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-12-27"
+                      },
+                      "status": {
+                        "type": "string",
+                        "example": "active"
+                      }
+                    }
                   }
                 }
               }
