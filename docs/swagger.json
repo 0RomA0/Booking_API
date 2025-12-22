@@ -65,41 +65,15 @@
                       "example": "Successfully found users data"
                     },
                     "data": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "required": [
-                          "_id",
-                          "name",
-                          "email",
-                          "phoneNumber",
-                          "role",
-                          "businessName"
-                        ],
-                        "properties": {
-                          "_id": {
-                            "type": "string",
-                            "example": "64a1f2c3e4b0f1234567890a"
-                          },
-                          "name": {
-                            "type": "string",
-                            "example": "Emma Don"
-                          },
-                          "email": {
-                            "type": "string",
-                            "example": "emma12@mail.com"
-                          },
-                          "phoneNumber": {
-                            "type": "string",
-                            "example": "+380965576920"
-                          },
-                          "role": {
-                            "type": "string",
-                            "example": "business"
-                          },
-                          "businessName": {
-                            "type": "string",
-                            "example": "Coffee house"
+                      "type": "object",
+                      "required": [
+                        "data"
+                      ],
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/user"
                           }
                         }
                       }
@@ -153,7 +127,29 @@
                       "example": "Successfully created"
                     },
                     "data": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "64a1f2c3e4b0f1234567890a"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Jon Blue"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "jon255@mail.com"
+                        },
+                        "phoneNumber": {
+                          "type": "string",
+                          "example": "+380978895615"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "client"
+                        }
+                      }
                     }
                   }
                 }
@@ -196,7 +192,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User-2"
+                "$ref": "#/components/schemas/user"
               }
             }
           }
@@ -223,7 +219,29 @@
                       "example": "Successfully patched a user"
                     },
                     "data": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "64a1f2c3e4b0f1234567890a"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Emma Hanks"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "emma195@mail.com"
+                        },
+                        "phoneNumber": {
+                          "type": "string",
+                          "example": "+380972346095"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "client"
+                        }
+                      }
                     }
                   }
                 }
@@ -298,7 +316,41 @@
                     "data": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/user"
+                        "type": "object",
+                        "required": [
+                          "_id",
+                          "name",
+                          "email",
+                          "phoneNumber",
+                          "role",
+                          "businessName"
+                        ],
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "64a1f2c3e4b0f1234567890a"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Emma Don"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "emma12@mail.com"
+                          },
+                          "phoneNumber": {
+                            "type": "string",
+                            "example": "+380965576920"
+                          },
+                          "role": {
+                            "type": "string",
+                            "example": "business"
+                          },
+                          "businessName": {
+                            "type": "string",
+                            "example": "Coffee house"
+                          }
+                        }
                       }
                     }
                   }
@@ -450,7 +502,93 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/booking"
+                "type": "object",
+                "required": [
+                  "client",
+                  "business",
+                  "date",
+                  "status"
+                ],
+                "properties": {
+                  "client": {
+                    "type": "object",
+                    "required": [
+                      "_id",
+                      "name",
+                      "email",
+                      "phoneNumber",
+                      "role"
+                    ],
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "64a1f2c3e4b0f1234567890a"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Emma Don"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "emma12@mail.com"
+                      },
+                      "phoneNumber": {
+                        "type": "string",
+                        "example": "+380965576920"
+                      },
+                      "role": {
+                        "type": "string",
+                        "example": "client"
+                      }
+                    }
+                  },
+                  "business": {
+                    "type": "object",
+                    "required": [
+                      "_id",
+                      "name",
+                      "email",
+                      "phoneNumber",
+                      "role",
+                      "businessName"
+                    ],
+                    "properties": {
+                      "_id": {
+                        "type": "string",
+                        "example": "64b3c4d5e6f7890123456789"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "Coffee House"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "coffee@mail.com"
+                      },
+                      "phoneNumber": {
+                        "type": "string",
+                        "example": "+380987654321"
+                      },
+                      "role": {
+                        "type": "string",
+                        "example": "business"
+                      },
+                      "businessName": {
+                        "type": "string",
+                        "example": "Coffee House"
+                      }
+                    }
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2025-12-27"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "active"
+                  }
+                }
               }
             }
           }
@@ -472,7 +610,93 @@
                       "example": "Successfully created"
                     },
                     "data": {
-                      "$ref": "#/components/schemas/booking"
+                      "type": "object",
+                      "required": [
+                        "client",
+                        "business",
+                        "date",
+                        "status"
+                      ],
+                      "properties": {
+                        "client": {
+                          "type": "object",
+                          "required": [
+                            "_id",
+                            "name",
+                            "email",
+                            "phoneNumber",
+                            "role"
+                          ],
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "64a1f2c3e4b0f1234567890a"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Emma Don"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "emma12@mail.com"
+                            },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": "+380965576920"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "client"
+                            }
+                          }
+                        },
+                        "business": {
+                          "type": "object",
+                          "required": [
+                            "_id",
+                            "name",
+                            "email",
+                            "phoneNumber",
+                            "role",
+                            "businessName"
+                          ],
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "64b3c4d5e6f7890123456789"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Coffee House"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "coffee@mail.com"
+                            },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": "+380987654321"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "business"
+                            },
+                            "businessName": {
+                              "type": "string",
+                              "example": "Coffee House"
+                            }
+                          }
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date",
+                          "example": "2025-12-27"
+                        },
+                        "status": {
+                          "type": "string",
+                          "example": "active"
+                        }
+                      }
                     }
                   }
                 }
@@ -522,7 +746,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully updated a booking!",
+            "description": "Successfully updated a booking",
             "content": {
               "application/json": {
                 "schema": {
@@ -542,7 +766,93 @@
                       "example": "Successfully patched a booking"
                     },
                     "data": {
-                      "type": "object"
+                      "type": "object",
+                      "required": [
+                        "client",
+                        "business",
+                        "date",
+                        "status"
+                      ],
+                      "properties": {
+                        "client": {
+                          "type": "object",
+                          "required": [
+                            "_id",
+                            "name",
+                            "email",
+                            "phoneNumber",
+                            "role"
+                          ],
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "64a1f2c3e4b0f1234567890a"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Emma Don"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "emma12@mail.com"
+                            },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": "+380965576920"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "client"
+                            }
+                          }
+                        },
+                        "business": {
+                          "type": "object",
+                          "required": [
+                            "_id",
+                            "name",
+                            "email",
+                            "phoneNumber",
+                            "role",
+                            "businessName"
+                          ],
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "64b3c4d5e6f7890123456789"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "Coffee House"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "coffee@mail.com"
+                            },
+                            "phoneNumber": {
+                              "type": "string",
+                              "example": "+380987654321"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "business"
+                            },
+                            "businessName": {
+                              "type": "string",
+                              "example": "Coffee House"
+                            }
+                          }
+                        },
+                        "date": {
+                          "type": "string",
+                          "format": "date",
+                          "example": "2025-12-27"
+                        },
+                        "status": {
+                          "type": "string",
+                          "example": "active"
+                        }
+                      }
                     }
                   }
                 }
@@ -706,51 +1016,6 @@
         "$ref": "#/components/schemas/user"
       },
       "user": {
-        "type": "object",
-        "required": [
-          "name",
-          "email"
-        ],
-        "properties": {
-          "_id": {
-            "type": "string",
-            "example": "64a1f2c3e4b0f1234567890a"
-          },
-          "name": {
-            "type": "string",
-            "example": "Emma Don"
-          },
-          "email": {
-            "type": "string",
-            "example": "emma12@mail.com"
-          },
-          "phoneNumber": {
-            "type": "string",
-            "example": "+380965576920"
-          },
-          "role": {
-            "type": "string",
-            "enum": [
-              "client",
-              "business"
-            ],
-            "example": "client"
-          },
-          "businessName": {
-            "type": "string",
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "example": "Coffee house"
-          }
-        }
-      },
-      "User-2": {
         "type": "object",
         "required": [
           "name",

@@ -15,7 +15,7 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: '../../../components/schemas/User.yaml'
+        $ref: '../../../components/schemas/user.yaml'
 responses:
   '200':
     description: 'Successfully updated a user!'
@@ -36,6 +36,22 @@ responses:
               example: 'Successfully patched a user'
             data:
               type: object
+              properties:
+                _id:
+                  type: string
+                  example: 64a1f2c3e4b0f1234567890a
+                name:
+                  type: string
+                  example: Emma Hanks
+                email:
+                  type: string
+                  example: emma195@mail.com
+                phoneNumber:
+                  type: string
+                  example: '+380972346095'
+                role:
+                  type: string
+                  example: client
   '400':
     $ref: '../../../components/responses/400.yaml'
   '401':

@@ -15,6 +15,32 @@ responses:
             data:
               type: array
               items:
-                $ref: '../../../components/schemas/user.yaml'
+                type: object
+                required:
+                  - _id
+                  - name
+                  - email
+                  - phoneNumber
+                  - role
+                  - businessName
+                properties:
+                  _id:
+                    type: string
+                    example: 64a1f2c3e4b0f1234567890a
+                  name:
+                    type: string
+                    example: Emma Don
+                  email:
+                    type: string
+                    example: emma12@mail.com
+                  phoneNumber:
+                    type: string
+                    example: '+380965576920'
+                  role:
+                    type: string
+                    example: business
+                  businessName:
+                    type: string
+                    example: Coffee house
   '401':
     $ref: '../../../components/responses/401.yaml'

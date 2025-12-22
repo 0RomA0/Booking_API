@@ -27,6 +27,22 @@ responses:
               example: Successfully created
             data:
               type: object
+              properties:
+                _id:
+                  type: string
+                  example: 64a1f2c3e4b0f1234567890a
+                name:
+                  type: string
+                  example: Jon Blue
+                email:
+                  type: string
+                  example: jon255@mail.com
+                phoneNumber:
+                  type: string
+                  example: '+380978895615'
+                role:
+                  type: string
+                  example: client
   '400':
     $ref: '../../components/responses/400.yaml'
   '401':
