@@ -5,6 +5,7 @@ import {
   deleteUserController,
   getAllUsersController,
   getBusinessUsersController,
+  getUserByIdController,
   updateUserController,
 } from '../controllers/users.js';
 import { validateBody } from '../middlewares/validationBody.js';
@@ -15,6 +16,11 @@ import { authenticate } from '../middlewares/authenticate.js';
 const router = Router();
 
 router.get('/', authenticate, ctrlWrapper(getAllUsersController));
+
+router.get('/business', authenticate, ctrlWrapper(getBusinessUsersController));
+
+router.get('/:id', authenticate, isValidId, ctrlWrapper(getUserByIdController));
+
 router.post(
   '/',
   authenticate,
@@ -34,7 +40,5 @@ router.delete(
   isValidId,
   ctrlWrapper(deleteUserController),
 );
-
-router.get('/business', authenticate, ctrlWrapper(getBusinessUsersController));
 
 export default router;

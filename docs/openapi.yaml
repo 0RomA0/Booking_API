@@ -25,6 +25,8 @@ paths:
       $ref: '../swagger/paths/users/post.yaml'
 
   /users/{id}:
+    get:
+      $ref: '../swagger/paths/users/{id}/get.yaml'
     patch:
       $ref: '../swagger/paths/users/{id}/patch.yaml'
     delete:

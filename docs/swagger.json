@@ -166,6 +166,92 @@
       }
     },
     "/users/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user by id",
+        "description": "Returns a single user by their ID",
+        "operationId": "getUserById",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "User ID",
+            "schema": {
+              "type": "string",
+              "example": "64f9b2c4e2d1a3c7f8a12345"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully found user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "number",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully found user with id"
+                    },
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "email"
+                      ],
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "64a1f2c3e4b0f1234567890a"
+                        },
+                        "name": {
+                          "type": "string",
+                          "example": "Emma Don"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "emma12@mail.com"
+                        },
+                        "phoneNumber": {
+                          "type": "string",
+                          "example": "+380965576920"
+                        },
+                        "role": {
+                          "type": "string",
+                          "enum": [
+                            "client",
+                            "business"
+                          ],
+                          "example": "client"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
+          "404": {
+            "$ref": "#/components/responses/404"
+          }
+        }
+      },
       "patch": {
         "tags": [
           "Users"
