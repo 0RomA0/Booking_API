@@ -11,6 +11,11 @@ export const createUsersSchema = Joi.object({
     .email()
     .messages({ 'string.email': `"email" must be a valid email` }),
 
+  password: Joi.string().min(8).required().messages({
+    'string.min': `"password" should have a minimum length of 8`,
+    'any.required': `"password" is required`,
+  }),
+
   phoneNumber: Joi.string()
     .min(13)
     .pattern(/^\+380\d{9}$/)

@@ -141,6 +141,10 @@
                           "type": "string",
                           "example": "jon255@mail.com"
                         },
+                        "password": {
+                          "type": "string",
+                          "example": "12345678"
+                        },
                         "phoneNumber": {
                           "type": "string",
                           "example": "+380978895615"
