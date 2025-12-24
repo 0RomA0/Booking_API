@@ -1040,7 +1040,54 @@
         },
         "responses": {
           "200": {
-            "description": "Registered successfully"
+            "description": "Registered successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully registered a user!"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        },
+                        "user": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "example": "694813180939e38c5fe61f21"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "testUser@mail.com"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "test"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "client"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/400"
@@ -1078,7 +1125,54 @@
         },
         "responses": {
           "200": {
-            "description": "Logged in successfully"
+            "description": "Logged in successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "example": 200
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Successfully logged a user!"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        },
+                        "user": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "example": "694813180939e38c5fe61f21"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "testUser@mail.com"
+                            },
+                            "name": {
+                              "type": "string",
+                              "example": "test"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "client"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/400"
