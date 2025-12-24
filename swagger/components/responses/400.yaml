@@ -1,12 +1,12 @@
 description: Bad Request. The request data is invalid or missing required fields.
 content:
-    application/json:
-      schema:
-        type: object
-        properties:
-          status:
-            type: integer
-            example: 400
-          message:
-            type: string
-            example: 'Validation error: email is required'
+  application/json:
+    schema:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+        message:
+          type: string
+          example: 'Validation error: incorrect email address or password'

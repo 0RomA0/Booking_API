@@ -1196,6 +1196,9 @@
           "204": {
             "description": "No Content"
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "401": {
             "$ref": "#/components/responses/401"
           }
@@ -1308,7 +1311,7 @@
                 },
                 "message": {
                   "type": "string",
-                  "example": "Validation error: email is required"
+                  "example": "Validation error: incorrect email address or password"
                 }
               }
             }
