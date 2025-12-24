@@ -36,13 +36,14 @@ paths:
     get:
       $ref: '../swagger/paths/users/business/get.yaml'
 
-  /bookings:
+  /booking/my:
     get:
       $ref: '../swagger/paths/bookings/get-my.yaml'
+  /booking:
     post:
       $ref: '../swagger/paths/bookings/post.yaml'
 
-  /bookings/{id}:
+  /booking/{id}:
     patch:
       $ref: '../swagger/paths/bookings/{id}/patch.yaml'
     delete:

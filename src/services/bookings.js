@@ -1,4 +1,5 @@
 import { BookingCollection } from '../db/models/bookings.js';
+import '../db/models/users.js';
 
 export const createBooking = async (payload) => {
   const newBooking = await BookingCollection.create(payload);
@@ -6,7 +7,9 @@ export const createBooking = async (payload) => {
 };
 
 export const getBooking = async ({ clientId }) => {
-  const booking = await BookingCollection.find({ client: clientId });
+  const booking = await BookingCollection.find({ client: clientId })
+    .populate('business', 'name email phoneNumber businessName')
+    .populate('client', 'name email phoneNumber');
   return booking;
 };
 
